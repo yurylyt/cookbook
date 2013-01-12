@@ -1,3 +1,36 @@
-<html>
-	<h1>Hello, Github pages</h1>
-</html>
+---
+layout: page
+title: Surg's cookbook
+tagline: Programming recipes
+---
+{% include JB/setup %}
+<div class="posts">
+  {% for post in site.posts %}
+    {% assign cut = '~cut~'%}
+    {% capture head%}{{ post.content | split: cut | first }}{% endcapture %}
+    {% capture tail%}{{ post.content | split: cut | last }}{% endcapture %}
+
+    <div class="post">  
+      <h2>
+        <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+        <small><span>{{ post.date | date_to_string }}</span> </small>
+      </h2>
+      
+      <!-- Post contents up to cut -->
+      <p> {{ head }}</p>
+
+      <!-- Read more link in cases there's cut -->
+      {% if tail != head %} 
+        <a href="{{ post.url }}">Read more &raquo;</a>
+      {% endif %}
+      {% unless post.tags == empty %}
+      <div>
+        <ul class="tag_box inline">
+          {% assign tags_list = post.tags %}
+          {% include JB/tags_list %}
+        </ul>
+      </div>
+  {% endunless %}  
+    </div>
+  {% endfor %}
+</div>
