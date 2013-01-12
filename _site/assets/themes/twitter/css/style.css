@@ -45,6 +45,9 @@ html, body {
 	padding:5px 0 ;
 	overflow:hidden;
 }
+.tag_box.inline {
+	padding: 0;
+}	
 .tag_box li {
 	line-height:28px;
 }
@@ -68,4 +71,8 @@ html, body {
 	border:1px solid #4C964D;
 	color:#FFF;
 }
-	
+
+/* tag_box ======================================================== */
+.post {
+	margin-bottom: 20px;
+}

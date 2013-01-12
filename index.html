@@ -17,20 +17,18 @@ tagline: Programming recipes
       </h2>
       
       <!-- Post contents up to cut -->
-      <p> {{ head }}</p>
-
-      <!-- Read more link in cases there's cut -->
-      {% if tail != head %} 
-        <a href="{{ post.url }}">Read more &raquo;</a>
-      {% endif %}
-      {% unless post.tags == empty %}
-      <div>
-        <ul class="tag_box inline">
-          {% assign tags_list = post.tags %}
-          {% include JB/tags_list %}
-        </ul>
-      </div>
-  {% endunless %}  
+        {{ head }}
+        <!-- Read more link in cases there's cut -->
+        {% if tail != head %} 
+          <a href="{{ post.url }}">Read more &raquo;</a>
+        {% endif %}
+        {% unless post.tags == empty %}
+          <ul class="tag_box inline">
+            {% assign tags_list = post.tags %}
+            {% include JB/tags_list %}
+          </ul>
+        {% endunless %}  
+  
     </div>
   {% endfor %}
 </div>
